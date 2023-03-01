@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="BaseTextInputLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="boxBackgroundColor">@android:color/transparent</item>
+        <item name="expandedHintEnabled">false</item>
+<!--        <item name="android:layout_marginStart">@dimen/_16dp</item>-->
+<!--        <item name="android:layout_marginEnd">@dimen/_16dp</item>-->
+<!--        <item name="android:textColorHint">@color/black3</item>-->
+<!--        <item name="boxStrokeColor">@drawable/text_input_layout_color</item>-->
+        <item name="errorTextAppearance">@style/Montserrat.Red.12sp</item>
+        <item name="hintTextAppearance">@style/Montserrat.Bold.Black3.14sp</item>
+        <item name="placeholderTextAppearance">@style/Montserrat.Black4.14sp</item>
+<!--        <item name="placeholderTextColor">@color/black5</item>-->
+    </style>
+
+    <!-- Only used as first TextInputLayout on the form, otherwise use the Default one-->
+    <style name="BaseTextInputLayout.First">
+        <item name="android:layout_marginTop">16dp</item>
+    </style>
+
+    <style name="BaseTextInputLayout.Default">
+        <item name="android:layout_marginTop">92dp</item>
+    </style>
+
+
+    <!-- Only used to extend other styles -->
+    <style name="BaseTextInputLayout.Password">
+        <item name="boxBackgroundColor">@android:color/transparent</item>
+        <item name="errorIconDrawable">@null</item>
+        <item name="endIconMode">password_toggle</item>
+    </style>
+
+    <!-- Only used as first TextInputLayout on the form, otherwise use the Default one-->
+    <style name="BaseTextInputLayout.Password.First">
+        <item name="android:layout_marginTop">16dp</item>
+    </style>
+
+    <style name="BaseTextInputLayout.Password.Default">
+        <item name="android:layout_marginTop">92dp</item>
+    </style>
+
+    <!-- Only used to extend other dropdown styles -->
+    <style name="BaseDropdownLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="boxBackgroundColor">@android:color/transparent</item>
+        <item name="boxStrokeWidth">1.5dp</item>
+<!--        <item name="boxStrokeColor">@drawable/text_input_layout_color</item>-->
+<!--        <item name="hintTextColor">@color/black3</item>-->
+<!--        <item name="android:textColorHint">@color/black3</item>-->
+        <item name="errorTextAppearance">@style/Montserrat.Red50.12sp</item>
+        <item name="hintTextAppearance">@style/Montserrat.Black3.14sp</item>
+        <item name="placeholderTextAppearance">@style/Montserrat.Black1.16sp</item>
+<!--        <item name="endIconDrawable">@drawable/ic_chevron_down</item>-->
+<!--        <item name="placeholderTextColor">@color/black5</item>-->
+    </style>
+
+    <style name="BaseTextInputLayout.AutocompleteTextView">
+        <item name="materialThemeOverlay">
+            @style/ThemeOverlay.MaterialComponents.AutoCompleteTextView
+        </item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="endIconMode">dropdown_menu</item>
+    </style>
+
+    <!-- Only used to extend other password styles -->
+    <style name="BaseTextInputLayout.Calendar">
+        <item name="errorIconDrawable">@null</item>
+<!--        <item name="endIconDrawable">@drawable/ic_calendar</item>-->
+        <item name="endIconMode">custom</item>
+    </style>
+
+    <style name="BaseDropdownLayout.First">
+        <item name="android:layout_marginTop">16dp</item>
+    </style>
+
+    <style name="DropDownCollateral">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+    </style>
+
+    <style name="BaseDropdownLayout.Default">
+        <item name="android:layout_marginTop">98dp</item>
+    </style>
+</resources>

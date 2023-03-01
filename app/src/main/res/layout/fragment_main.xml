@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.MainFragment">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_0dp"
+            android:layout_marginBottom="@dimen/_16dp"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/edit_text_name"
+                    style="@style/BaseTextInputLayout.First"
+                    android:layout_marginHorizontal="@dimen/_16dp"
+                    android:hint="@string/lbl_text_field_nama"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:placeholderText="@string/lbl_text_field_nama">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/BaseTextInputEditText.OneLine"
+                        android:inputType="textCapWords" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilIdCustomer"
+                    style="@style/BaseTextInputLayout.First"
+                    android:layout_marginHorizontal="@dimen/_16dp"
+                    android:hint="@string/label_id_customer"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edit_text_name"
+                    app:placeholderText="@string/label_hint_id_customer">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/BaseTextInputEditText.OneLine"
+                        android:inputType="textCapWords" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/edit_text_phone"
+                    style="@style/BaseTextInputLayout.First"
+                    android:layout_marginHorizontal="@dimen/_16dp"
+                    android:hint="@string/lbl_phone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tilIdCustomer"
+                    app:placeholderText="@string/hint_phone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/BaseTextInputEditText.OneLine"
+                        android:digits="0123456789"
+                        android:inputType="phone" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_distance"
+                    style="@style/BaseTextInputLayout.First"
+                    android:layout_marginHorizontal="@dimen/_16dp"
+                    android:hint="@string/label_hint_distance"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edit_text_phone"
+                    app:placeholderText="@string/label_distance">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/BaseTextInputEditText.OneLine"
+                        android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_discount"
+                    style="@style/BaseTextInputLayout.First"
+                    android:layout_marginHorizontal="@dimen/_16dp"
+                    android:hint="@string/label_hint_discount"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/til_distance"
+                    app:placeholderText="@string/label_placeholder_discount">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/BaseTextInputEditText.OneLine"
+                        android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilHarga"
+                    style="@style/BaseTextInputLayout.First"
+                    android:layout_marginHorizontal="@dimen/_16dp"
+                    android:hint="@string/label_harga"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/til_discount"
+                    app:placeholderText="@string/label_harga">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/BaseTextInputEditText.OneLine"
+                        android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.kennyc.view.MultiStateView
+                    android:id="@+id/msv_list_customer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tilHarga"
+                    app:msv_animateViewChanges="true"
+                    app:msv_emptyView="@layout/layout_empty_list_customer"
+                    app:msv_viewState="content">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvCustomer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="@dimen/_16dp"
+                        android:layout_marginTop="@dimen/_16dp"
+
+                        tools:itemCount="5"
+                        tools:listitem="@layout/layout_item_customer" />
+
+                </com.kennyc.view.MultiStateView>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <Button
+                android:id="@+id/btnInsert"
+                style="@style/Button.Red"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_16dp"
+                android:layout_marginBottom="@dimen/_16dp"
+                android:text="@string/lbl_simpan"
+                android:textAllCaps="false"
+                app:layout_constraintBottom_toTopOf="@+id/btnSearch"
+                app:layout_constraintEnd_toStartOf="@+id/btnEdit"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/btnEdit"
+                style="@style/Button.Red"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_16dp"
+                android:layout_marginBottom="@dimen/_16dp"
+                android:text="Ubah"
+                android:textAllCaps="false"
+                app:layout_constraintBottom_toTopOf="@+id/btnDelete"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btnInsert" />
+
+            <Button
+                android:id="@+id/btnSearch"
+                style="@style/Button.Red"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_16dp"
+                android:layout_marginBottom="@dimen/_16dp"
+                android:text="Cari"
+                android:textAllCaps="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnDelete"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/btnDelete"
+                style="@style/Button.Red"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_16dp"
+                android:layout_marginBottom="@dimen/_16dp"
+                android:text="Hapus"
+                android:textAllCaps="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btnSearch" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

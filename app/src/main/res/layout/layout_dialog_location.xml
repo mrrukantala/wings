@@ -1,0 +1,43 @@
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="56dp"
+        android:background="@drawable/bg_dialog"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/_24dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_24dp"
+            android:text="Pilih Lokasi"
+            android:textStyle="bold" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnPositive"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_24dp"
+            android:background="@drawable/bg_button_positive_dialog"
+            android:text="Pilih Lokasi Sekarang"
+            android:textAllCaps="false"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnNegative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_8dp"
+            android:layout_marginBottom="@dimen/_24dp"
+            android:background="@drawable/bg_button_negative_dialog"
+            android:text="Pilih Lokasi Manual"
+            android:textAllCaps="false"
+            android:textStyle="bold" />
+    </LinearLayout>
+</layout>

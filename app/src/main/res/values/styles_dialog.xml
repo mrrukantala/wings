@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+<!--        <style name="Theme.BossKu.Fullscreen">-->
+<!--            <item name="android:windowNoTitle">true</item>-->
+<!--            <item name="android:windowActionBar">false</item>-->
+<!--            <item name="android:windowFullscreen">false</item>-->
+<!--            <item name="android:windowBackground">@color/white</item>-->
+<!--        </style>-->
+
+        <style name="FullWidth.Dialog" parent="Theme.AppCompat.Light.Dialog">
+            <item name="android:windowNoTitle">true</item>
+            <item name="android:windowIsFloating">false</item>
+            <item name="android:windowFullscreen">false</item>
+            <item name="android:background">@android:color/white</item>
+            <item name="android:windowBackground">@android:color/transparent</item>
+        </style>
+
+        <style name="DialogStyle">
+            <item name="android:windowMinWidthMajor">100%</item>
+            <item name="android:windowMinWidthMinor">100%</item>
+        </style>
+
+        <style name="DialogStyleTransparent">
+            <item name="android:windowMinWidthMajor">100%</item>
+            <item name="android:windowMinWidthMinor">100%</item>
+            <item name="android:windowNoTitle">true</item>
+            <item name="android:windowActionBar">false</item>
+            <item name="android:windowFullscreen">false</item>
+            <item name="android:windowIsFloating">false</item>
+            <item name="android:background">@android:color/transparent</item>
+<!--            <item name="android:windowBackground">@drawable/bg_transparent</item>-->
+        </style>
+
+        <style name="dialog_animation_shrink_fade">
+<!--            <item name="android:windowEnterAnimation">@anim/anim_shrink_fade_in</item>-->
+<!--            <item name="android:windowExitAnimation">@anim/anim_shrink_fade_out</item>-->
+        </style>
+
+        <style name="DatePickerDialogTheme" parent="@style/Theme.MaterialComponents.DayNight.Dialog">
+<!--            <item name="dialogCornerRadius">@dimen/_4dp</item>-->
+        </style>
+
+        <style name="DatePickerTheme" parent="Theme.AppCompat.DayNight.Dialog.Alert">
+<!--            <item name="colorControlNormal">@color/black6</item>-->
+            <item name="android:textColorPrimary">@color/black</item>
+<!--            <item name="android:fontFamily">@font/roboto_medium</item>-->
+        </style>
+
+</resources>

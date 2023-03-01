@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="red">#AF1254</color>
+    <color name="red2">#F3533A</color>
+    <color name="black1">#424242</color>
+    <color name="black2">#52575C</color>
+    <color name="black3">#A0A4A8</color>
+    <color name="black4">#A6A6A6</color>
+    <color name="black5">#E8E8E8</color>
+    <color name="disable">#E8E8E8</color>
+    <color name="black6">#F5F5F5</color>
+    <color name="black7">#FAFAFA</color>
+    <color name="green30">#DAEFE0</color>
+    <color name="green40">#56C281</color>
+    <color name="red50">#A03B3B</color>
+    <color name="blue">#007BFF</color>
+    <color name="green60">#2A844E</color>
+    <color name="red60">#842A2A</color>
+    <color name="yellow20">#FFF3BF</color>
+    <color name="yellow40">#FCCF46</color>
+    <color name="yellow50">#FFD43B</color>
+    <color name="yellow70">#FAB005</color>
+    <color name="yellow80">#fa9c05</color>
+    <color name="lightblue30">#A8CEEB</color>
+    <color name="bronze70">#968E6C</color>
+    <color name="bronze80">#693D07</color>
+    <color name="slate30">#A8CEEB</color>
+    <color name="slate50">#5C94BC</color>
+    <color name="slate70">#376281</color>
+    <color name="grey_light">#F7F7F7</color>
+    <color name="grey_disabled_button">#A2A3A7</color>
+    <color name="grey_f5">#f5f5f5</color>
+    <color name="grey_ca">#FAFAFA</color>
+    <color name="grey_cf">#CACCCF</color>
+    <color name="grey_c4">#424242</color>
+    <color name="grey_darken3">#424242</color>
+    <color name="lightBluePrimary">#229BD8</color>
+    <color name="lightBlueLite">#E8F5FB</color>
+    <color name="orange">#FABB02</color>
+    <color name="chipDisabledBackgroundColor">#F4F4F4</color>
+    <color name="chipDisabledBackgroundText">#CCCCCC</color>
+    <color name="checkboxFarmerLoanBorder">#DEE0E1</color>
+    <color name="checkboxFarmerLoanFill">#ECEDEE</color>
+    <color name="color_shimmer_soft">#E1E8EE</color>
+    <color name="translucent_black">#80000000</color>
+    <color name="border_subtle">#EBEBEB</color>
+    <color name="red1">#B71C1C</color>
+    <color name="red_error">#B00020</color>
+
+    <!--  Grayscale Section  -->
+    <color name="black_90">#424242</color>
+    <color name="black_font">#616161</color>
+    <color name="black_70">#757575</color>
+    <color name="black_60">#9E9E9E</color>
+    <color name="black_50">#BDBDBD</color>
+    <color name="black_disable">#E0E0E0</color>
+    <color name="black_30">#EEEEEE</color>
+    <color name="black_20">#F5F5F5</color>
+    <!--  End Grayscale Section  -->
+
+    <!--  Red (Error) Section  -->
+    <color name="error_pressed">#9D3535</color>
+    <color name="error_hover">#C73B3B</color>
+    <color name="error_normal">#F04242</color>
+    <color name="error_40">#F26767</color>
+    <color name="error_30">#F48C8C</color>
+    <color name="error_20">#F6B0B0</color>
+    <color name="error_10">#F8D5D5</color>
+    <!--  End Red Section  -->
+
+    <!--  Yellow (Warning) Section  -->
+    <color name="warning_pressed">#A4831C</color>
+    <color name="warning_hover">#D0A31B</color>
+    <color name="warning_normal">#FCC419</color>
+    <color name="warning_40">#FCCF46</color>
+    <color name="warning_30">#FBDA73</color>
+    <color name="warning_20">#FBE4A0</color>
+    <color name="warning_10">#FAEFCD</color>
+    <!--  End Yellow Section  -->
+
+    <!--  Green (Success) Section  -->
+    <color name="success_pressed">#2B7741</color>
+    <color name="success_hover">#2E934C</color>
+    <color name="success_normal">#31B057</color>
+    <color name="success_40">#59BF78</color>
+    <color name="success_30">#81CE98</color>
+    <color name="success_20">#AADCB9</color>
+    <color name="success_10">#D2EBD9</color>
+    <!--  End Green Section  -->
+
+    <!--  Blue (Info) Section  -->
+    <color name="info_pressed">#1A497A</color>
+    <color name="info_hover">#175B97</color>
+    <color name="info_normal">#146EB4</color>
+    <color name="info_40">#428AC2</color>
+    <color name="info_30">#70A6D0</color>
+    <color name="info_20">#9EC2DE</color>
+    <color name="info_10">#CCDEEC</color>
+    <!--  End Blue Section  -->
+
+    <!--  AGR Section  -->
+    <color name="agr_pressed">#377555</color>
+    <color name="agr_hover">#3E8F5C</color>
+    <color name="agr_normal">#47AF64</color>
+    <color name="agr_40">#6CBF83</color>
+    <color name="agr_30">#91CFA2</color>
+    <color name="agr_20">#B5DFC1</color>
+    <color name="agr_10">#DAEFE0</color>
+    <!--  End AGR Section  -->
+
+    <!--  Suite Section  -->
+    <color name="suite_70">#1F703D</color>
+    <color name="suite_60">#1F8A46</color>
+    <color name="suite_50">#1EA44F</color>
+    <color name="suite_40">#4AB571</color>
+    <color name="suite_30">#76C693</color>
+    <color name="suite_20">#A2D8B6</color>
+    <color name="suite_10">#CEE9D8</color>
+    <!--  End Suite Section  -->
+
+    <!--  Mart Section  -->
+    <color name="mart_pressed">#96423E</color>
+    <color name="mart_hover">#BF4A3C</color>
+    <color name="mart_normal">#F3533A</color>
+    <color name="mart_40">#F57561</color>
+    <color name="mart_30">#F89889</color>
+    <color name="mart_20">#FABAB0</color>
+    <color name="mart_10">#FDDDD8</color>
+    <!--  End Mart Section  -->
+
+    <!--  Light Blue (Fisheries Primary) Section  -->
+    <color name="aqf_pressed">#226A8F</color>
+    <color name="aqf_hover">#2283B3</color>
+    <color name="aqf_normal">#229BD8</color>
+    <color name="aqf_40">#4DAEDF</color>
+    <color name="aqf_30">#78C1E6</color>
+    <color name="aqf_20">#A4D4EC</color>
+    <color name="aqf_10">#CFE7F3</color>
+    <!--  End Light Blue Section  -->
+
+    <!--  Dark Blue (Fisheries Secondary) Section  -->
+    <color name="fisheries_pressed">#112B35</color>
+    <color name="fisheries_hover">#0C2E3B</color>
+    <color name="fisheries_normal">#073142</color>
+    <color name="fisheries_40">#385967</color>
+    <color name="fisheries_30">#68818C</color>
+    <color name="fisheries_20">#99AAB0</color>
+    <color name="fisheries_10">#C9D2D5</color>
+    <!--  End Dark Blue Section  -->
+
+    <!--  AGL Section  -->
+    <color name="agl_pressed">#A6690D</color>
+    <color name="agl_hover">#D38107</color>
+    <color name="agl_normal">#FF9900</color>
+    <color name="agl_40">#FEAC32</color>
+    <color name="agl_30">#FDC064</color>
+    <color name="agl_20">#FCD396</color>
+    <color name="agl_10">#FBE7C8</color>
+    <!--  End AGL Section  -->
+
+    <!--  Poultry Section  -->
+    <color name="poultry_70">#A56A25</color>
+    <color name="poultry_60">#D18226</color>
+    <color name="poultry_50">#FD9A27</color>
+    <color name="poultry_40">#FCAD51</color>
+    <color name="poultry_30">#FCC07B</color>
+    <color name="poultry_20">#FBD4A6</color>
+    <color name="poultry_10">#FBE7D0</color>
+    <!--  End Poultry Section  -->
+
+    <!--  Ruminansia Section  -->
+    <color name="ruminansia_70">#A07926</color>
+    <color name="ruminansia_60">#CB9728</color>
+    <color name="ruminansia_50">#F5B42A</color>
+    <color name="ruminansia_40">#F6C254</color>
+    <color name="ruminansia_30">#F7D07D</color>
+    <color name="ruminansia_20">#F8DEA7</color>
+    <color name="ruminansia_10">#F9ECD0</color>
+    <!--  End Ruminansia Section  -->
+</resources>
