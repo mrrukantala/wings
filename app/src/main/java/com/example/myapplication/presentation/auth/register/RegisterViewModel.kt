@@ -10,7 +10,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -49,10 +48,10 @@ class RegisterViewModel @Inject constructor(
     }
 
     fun register(data: UserD) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(Dispatchers.Default) {
             useCase.insert(UserItem(data.user, data.password))
                 .onStart {
-                    Log.v("DATA", "LOADING")
+                    _state.value = RegisterState.Loading()
                 }
                 .catch {
 
@@ -60,14 +59,22 @@ class RegisterViewModel @Inject constructor(
                 .collect {
                     when (it) {
                         is com.example.bossku.utils.common.base.Result.Success -> {
-                            Log.v("DATA", "SUKSES ${it.data}")
+                            successHandler(it.data)
                         }
                         is com.example.bossku.utils.common.base.Result.Error -> {
-                            Log.v("DATA", "ERROR ${it.response}")
+                            errorHandler(it.response.toUserEntity())
                         }
                     }
                 }
         }
+    }
+
+    private fun errorHandler(toUserEntity: UserD) {
+        _state.value = RegisterState.Error(toUserEntity)
+    }
+
+    private fun successHandler(data: UserD) {
+        _state.value = RegisterState.Success(data)
     }
 }
 

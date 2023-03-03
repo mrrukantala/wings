@@ -6,14 +6,14 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="boxBackgroundColor">@android:color/transparent</item>
         <item name="expandedHintEnabled">false</item>
-<!--        <item name="android:layout_marginStart">@dimen/_16dp</item>-->
-<!--        <item name="android:layout_marginEnd">@dimen/_16dp</item>-->
-<!--        <item name="android:textColorHint">@color/black3</item>-->
-<!--        <item name="boxStrokeColor">@drawable/text_input_layout_color</item>-->
+        <item name="android:layout_marginStart">@dimen/_16dp</item>
+        <item name="android:layout_marginEnd">@dimen/_16dp</item>
+        <item name="android:textColorHint">@color/black3</item>
+        <item name="boxStrokeColor">@drawable/text_input_layout_color</item>
         <item name="errorTextAppearance">@style/Montserrat.Red.12sp</item>
         <item name="hintTextAppearance">@style/Montserrat.Bold.Black3.14sp</item>
         <item name="placeholderTextAppearance">@style/Montserrat.Black4.14sp</item>
-<!--        <item name="placeholderTextColor">@color/black5</item>-->
+        <item name="placeholderTextColor">@color/black5</item>
     </style>
 
     <!-- Only used as first TextInputLayout on the form, otherwise use the Default one-->

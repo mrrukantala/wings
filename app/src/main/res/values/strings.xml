@@ -41,7 +41,7 @@
     <string name="_null">_null</string>
     <string name="lbl_lihat_selengkapnya">Lihat Selengkapnya</string>
     <string name="lbl_ubah_password">Ubah Password</string>
-    <string name="lbl_lupa_password">Lupa Password</string>
+    <string name="doesnt_have_account">Belum punya akun?</string>
     <string name="lbl_mitra_umkm_bossku">Mitra UMKM BossKu</string>
     <string name="lbl_kategori_produk">Kategori Produk</string>
     <string name="lbl_produk_popular">Produk Popular</string>
@@ -224,14 +224,6 @@
     <string name="label_hint_discount">Potongan</string>
     <string name="label_placeholder_discount">Potongan</string>
     <string name="nama">Nama</string>
-
-    <string-array name="statesProduct">
-        <item>menunggu pembayaran</item>
-        <item>menunggu konfirmasi</item>
-        <item>diproses seller</item>
-        <item>sedang dalam perjalanan</item>
-        <item>diterima user</item>
-        <item>selesai</item>
-    </string-array>
-
+    <string name="data_empty">Belum ada data</string>
+    <string name="label_username">Username</string>
 </resources>

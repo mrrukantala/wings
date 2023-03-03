@@ -9,12 +9,20 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.flowWithLifecycle
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import com.agree.ui.snackbar.errorSnackBar
 import com.example.bossku.utils.app.SharedPreferences
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentLogin2Binding
+import com.example.myapplication.domain.entity.UserD
+import com.example.myapplication.presentation.auth.ContainerAuthFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -22,7 +30,7 @@ class LoginFragment : Fragment() {
 
     @Inject
     lateinit var pref: SharedPreferences
-    private lateinit var viewModel: LoginViewModel
+    private val viewModel: LoginViewModel by viewModels()
 
     private lateinit var binding: FragmentLogin2Binding
     private lateinit var etUsername: EditText
@@ -30,6 +38,10 @@ class LoginFragment : Fragment() {
 
     private val authNavController: NavController? by lazy {
         activity?.findNavController(R.id.nav_host_fragment_authentication)
+    }
+
+    private val mainNavController: NavController? by lazy {
+        activity?.findNavController(R.id.nav_host_fragment_main)
     }
 
     private val textWatcher = object : TextWatcher {
@@ -69,18 +81,41 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         listOf(etUsername, etPassword).forEach { it.addTextChangedListener(textWatcher) }
-
+        loginObserver()
         binding.btnLogin.setOnClickListener {
-            Toast.makeText(
-                requireContext(),
-                "${etUsername.text ?: ""} ${etPassword.text ?: ""}",
-                Toast.LENGTH_SHORT
-            ).show()
+            viewModel.login(UserD(etUsername.text.toString(), etPassword.text.toString()))
         }
 
         binding.btnRegis.setOnClickListener {
             authNavController?.navigate(LoginFragmentDirections.actionLoginFragmentToRegisterFragment())
         }
+    }
+
+    private fun loginObserver() {
+        viewModel.state.flowWithLifecycle(lifecycle).onEach { state -> HandleState(state) }
+            .launchIn(lifecycleScope)
+    }
+
+    private fun HandleState(state: LoginState) {
+        when (state) {
+            is LoginState.Loading -> {
+                binding.iloading.root.visibility = View.VISIBLE
+            }
+            is LoginState.Success -> {
+                pref.saveData(state.data.user)
+                successHandler(state.data)
+            }
+            is LoginState.Error -> {
+                binding.iloading.root.visibility = View.GONE
+                errorSnackBar(state.data.user)
+            }
+            else -> {}
+        }
+    }
+
+    private fun successHandler(data: UserD) {
+        pref.saveData(data.user)
+        mainNavController?.navigate(ContainerAuthFragmentDirections.actionContainerAuthFragmentToContainerMenuFragment())
     }
 
     private fun isFormValid() = etUsername.error == null && binding.etPassword.error == null

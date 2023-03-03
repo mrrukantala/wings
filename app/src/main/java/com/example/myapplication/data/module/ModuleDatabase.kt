@@ -18,12 +18,12 @@ object ModuleDatabase {
 
     @Singleton // Tell Dagger-Hilt to create a singleton accessible everywhere in ApplicationCompenent (i.e. everywhere in the application)
     @Provides
-    fun providePenjualanDatabase(@ApplicationContext app: Context) = Room.databaseBuilder(
-        app,
-        PenjualanDatabase::class.java,
-        "penjualan_database"
-    ).fallbackToDestructiveMigration()
-        .build() // The reason we can construct a database for the repo
+    fun providePenjualanDatabase(@ApplicationContext app: Context) =  PenjualanDatabase.getInstance(app)//Room.databaseBuilder(
+//        app,
+//        PenjualanDatabase::class.java,
+//        "penjualan_database"
+//    ).fallbackToDestructiveMigration()
+//        .build() // The reason we can construct a database for the repo
 
     @Singleton
     @Provides

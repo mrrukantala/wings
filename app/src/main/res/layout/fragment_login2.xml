@@ -26,13 +26,12 @@
                     android:layout_marginStart="@dimen/_16dp"
                     android:layout_marginTop="@dimen/_16dp"
                     android:text="@string/lbl_login"
-                    android:textColor="@color/lightBluePrimary"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/textViewLabelTitle2"
-                    style="@style/Montserrat.Black1"
+                    style="@style/Montserrat.Black1.12sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_16dp"
@@ -45,7 +44,7 @@
                     android:id="@+id/etUsername"
                     style="@style/BaseTextInputLayout.First"
                     android:layout_marginHorizontal="@dimen/_16dp"
-                    android:hint="Username"
+                    android:hint="@string/label_username"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textViewLabelTitle2"
@@ -83,10 +82,20 @@
                     android:enabled="false"
                     android:text="@string/lbl_button_login"
                     android:textAllCaps="false"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+
+                <TextView
+                    android:id="@+id/doesntHaveAccount"
+                    style="@style/Montserrat.Black1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16dp"
+                    android:text="@string/doesnt_have_account"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
                 <Button
                     android:id="@+id/btn_regis"
@@ -100,9 +109,16 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+                    app:layout_constraintTop_toBottomOf="@+id/doesntHaveAccount" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
+
+        <include
+            android:id="@+id/iloading"
+            layout="@layout/loading_all_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

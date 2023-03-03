@@ -3,11 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.example.myapplication.presentation.MainFragment"
-        android:label="MainFragment"
-        tools:layout="@layout/fragment_main" />
+        android:id="@+id/homeFragment"
+        android:name="com.example.myapplication.presentation.menu.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_detailProductFragment"
+            app:destination="@id/detailProductFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@anim/anim_slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailProductFragment"
+        android:name="com.example.myapplication.presentation.menu.home.detail.DetailProductFragment"
+        android:label="fragment_detail_product"
+        tools:layout="@layout/fragment_detail_product" />
+    <fragment
+        android:id="@+id/listCheckoutProductFragment"
+        android:name="com.example.myapplication.presentation.menu.listcheckout.ListCheckoutProductFragment"
+        android:label="fragment_list_checkout_product"
+        tools:layout="@layout/fragment_list_checkout_product" />
+    <fragment
+        android:id="@+id/myProductFragment"
+        android:name="com.example.myapplication.presentation.menu.setting.MyProductFragment"
+        android:label="fragment_my_product"
+        tools:layout="@layout/fragment_my_product" />
 </navigation>

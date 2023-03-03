@@ -9,7 +9,9 @@
     <com.kennyc.view.MultiStateView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:msv_viewState="content">
+        app:msv_loadingView="@layout/shimmer_product"
+        app:msv_emptyView="@layout/empty_layout"
+        app:msv_viewState="empty">
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"

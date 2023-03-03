@@ -5,24 +5,24 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:paddingTop">32dp</item>
-<!--        <item name="android:fontFamily">@font/nunito_sans</item>-->
-<!--        <item name="background">@drawable/bg_edittext</item>-->
+        <item name="android:fontFamily">@font/nunito_sans</item>
+        <item name="background">@drawable/bg_edittext</item>
     </style>
 
     <style name="BaseTextInputEditText.OneLine">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-<!--        <item name="android:paddingTop">@dimen/_32dp</item>-->
-<!--        <item name="background">@drawable/bg_edittext</item>-->
-<!--        <item name="android:fontFamily">@font/nunito_sans</item>-->
+        <item name="android:paddingTop">@dimen/_32dp</item>
+        <item name="background">@drawable/bg_edittext</item>
+        <item name="android:fontFamily">@font/nunito_sans</item>
         <item name="maxLines">1</item>
     </style>
 
     <style name="BaseTextInputEditText.OneLine.Password">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-<!--        <item name="android:paddingTop">@dimen/_32dp</item>-->
-<!--        <item name="background">@drawable/bg_edittext</item>-->
+        <item name="android:paddingTop">@dimen/_32dp</item>
+        <item name="background">@drawable/bg_edittext</item>
         <item name="maxLines">1</item>
         <item name="android:inputType">textPassword</item>
     </style>

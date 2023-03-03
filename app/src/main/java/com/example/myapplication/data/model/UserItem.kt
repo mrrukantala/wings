@@ -14,5 +14,5 @@ data class UserItem(
     val password: String
 ) {
     fun toUserEntity() =
-        UserD(user, password)
+        UserD(user ?: "null", password ?: "null")
 }

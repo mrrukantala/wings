@@ -9,14 +9,35 @@ import android.view.ViewGroup
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.flowWithLifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import com.agree.ui.snackbar.errorSnackBar
+import com.example.bossku.utils.app.SharedPreferences
+import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentRegisterBinding
 import com.example.myapplication.domain.entity.UserD
+import com.example.myapplication.presentation.auth.ContainerAuthFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class RegisterFragment : Fragment() {
 
+    @Inject
+    lateinit var pref: SharedPreferences
     private val viewModel: RegisterViewModel by viewModels()
+
+    private val authNavController: NavController? by lazy {
+        activity?.findNavController(R.id.nav_host_fragment_authentication)
+    }
+
+    private val mainNavController: NavController? by lazy {
+        activity?.findNavController(R.id.nav_host_fragment_main)
+    }
 
     private lateinit var binding: FragmentRegisterBinding
     private lateinit var etUsername: EditText
@@ -55,17 +76,50 @@ class RegisterFragment : Fragment() {
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        regisObserver()
         listOf(etUsername, etPassword).forEach { it.addTextChangedListener(textWatcher) }
 
         binding.btnLogin.setOnClickListener {
-            viewModel.getData(etUsername.text.toString())
-//            viewModel.register(UserD(etUsername.text.toString(), etPassword.text.toString()))
+            viewModel.register(UserD(etUsername.text.toString(), etPassword.text.toString()))
+        }
+        binding.toolbar.setNavigationIcon(R.drawable.ic_chevron_left)
+        binding.toolbar.setOnClickListener { back() }
+    }
+
+    private fun regisObserver() {
+        viewModel.state.flowWithLifecycle(lifecycle)
+            .onEach { state -> handleState(state) }
+            .launchIn(lifecycleScope)
+    }
+
+    private fun handleState(state: RegisterState) {
+        when (state) {
+            is RegisterState.Loading -> {
+                binding.iloading.root.visibility = View.VISIBLE
+            }
+            is RegisterState.Success -> {
+                pref.saveData(state.data.user)
+                successHandler(state.data)
+            }
+            is RegisterState.Error -> {
+                binding.iloading.root.visibility = View.GONE
+                errorSnackBar(state.data.user)
+            }
+            else -> {}
         }
     }
 
+    private fun successHandler(data: UserD) {
+        mainNavController?.navigate(ContainerAuthFragmentDirections.actionContainerAuthFragmentToContainerMenuFragment())
+    }
+
+
     private fun isFormValid() = etUsername.error == null && binding.etPassword.error == null
     private fun isFormEmpty() = etUsername.text.isNullOrEmpty() || etPassword.text.isNullOrEmpty()
+    private fun back() {
+        authNavController?.navigateUp()
+    }
 
 }
