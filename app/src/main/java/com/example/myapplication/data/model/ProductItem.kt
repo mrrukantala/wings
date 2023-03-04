@@ -14,6 +14,9 @@ data class ProductItem(
     @ColumnInfo(name = "_product_name")
     val productName: String,
 
+    @ColumnInfo(name = "_user")
+    val user: String,
+
     @ColumnInfo(name = "_price")
     val price: Int,
 

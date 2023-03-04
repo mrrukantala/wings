@@ -11,8 +11,11 @@ interface ProductDao {
     @Insert
     fun insert(productData: ProductItem)
 
-    @Query("SELECT * FROM product_data")
-    fun getAllProductData(): LiveData<List<ProductItem>>
+    @Query("SELECT * FROM product_data WHERE _user != :key")
+    fun getAllProductData(key: String): LiveData<List<ProductItem>>
+
+    @Query("SELECT * FROM product_data where _user = :key")
+    fun getListProductByUser(key: String): LiveData<List<ProductItem>>
 
     @Query("SELECT * FROM product_data WHERE _product_code = :key")
     fun getProductByCode(key: String): ProductItem

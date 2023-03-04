@@ -2,8 +2,10 @@ package com.example.myapplication.data.module
 
 import android.content.Context
 import androidx.room.Room
+import com.example.myapplication.data.repositoryimpl.ProductRepositoryImpl
 import com.example.myapplication.data.repositoryimpl.UserRepositoryImpl
 import com.example.myapplication.data.utils.PenjualanDatabase
+import com.example.myapplication.domain.repo.ProductRepository
 import com.example.myapplication.domain.repo.UserRepository
 import dagger.Module
 import dagger.Provides
@@ -29,5 +31,11 @@ object ModuleDatabase {
     @Provides
     fun provideUserDao(db: PenjualanDatabase): UserRepository {
         return UserRepositoryImpl(db.userDao)
+    }
+
+    @Singleton
+    @Provides
+    fun provideProductDao(db: PenjualanDatabase): ProductRepository {
+        return ProductRepositoryImpl(db.productDao)
     }
 }

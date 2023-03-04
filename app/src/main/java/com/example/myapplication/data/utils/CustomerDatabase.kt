@@ -8,6 +8,7 @@ import com.example.myapplication.data.model.ProductItem
 import com.example.myapplication.data.model.TransactionDetailItem
 import com.example.myapplication.data.model.TransactionHeaderItem
 import com.example.myapplication.data.model.UserItem
+import com.example.myapplication.domain.dao.penjualan.ProductDao
 import com.example.myapplication.domain.dao.penjualan.UserDao
 
 @Database(
@@ -19,6 +20,7 @@ import com.example.myapplication.domain.dao.penjualan.UserDao
 abstract class PenjualanDatabase : RoomDatabase() {
 
     abstract val userDao: UserDao
+    abstract val productDao: ProductDao
 
     companion object {
         @Volatile
