@@ -53,7 +53,7 @@ class AddProductFragment : Fragment() {
                     etProductPrice.text.toString(),
                     etProductDiscount.text.toString(),
                     etDimensionWidth.text.toString(),
-                    etDimensionWidth.text.toString()
+                    etDimensionHeight.text.toString()
                 )
             }
         }
@@ -126,7 +126,6 @@ class AddProductFragment : Fragment() {
 
     private fun loadingAddAndEdit(state: Int) {
         binding.iloding.root.visibility = state
-//        binding.iloading.root.visibility = state
     }
 
     private fun isFormEmpty(): Boolean {

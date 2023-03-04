@@ -38,7 +38,7 @@ class AddProductViewModel @Inject constructor(
     private var _dimensionHeight = MutableLiveData<Int>()
     val dimensionHeight get() = _dimensionHeight
 
-    private var _dimension = "${_dimensionWidth.value} cm x ${_dimensionHeight.value}  cm"
+    private var _dimension = MutableLiveData("${_dimensionWidth.value} cm x ${_dimensionHeight.value}  cm")
 
     private val _stateAddData = MutableStateFlow<TambahProductState>(TambahProductState.Init)
     val stateAddData: Flow<TambahProductState> get() = _stateAddData
@@ -60,7 +60,7 @@ class AddProductViewModel @Inject constructor(
                 _productPrice.value.toString().toInt(),
                 _currenyType.value.toString(),
                 _discount.value.toString().toInt(),
-                _dimension,
+                _dimension.value.toString(),
                 "PCS"
             )
 
@@ -129,11 +129,13 @@ class AddProductViewModel @Inject constructor(
     }
 
     private fun setHeightProduct(valueHeight: String) {
-        _dimensionWidth.value = valueHeight.replace(".", "").toInt() ?: 0
+        _dimensionHeight.value = valueHeight.replace(".", "").toInt() ?: 0
+        _dimension.value = "${_dimensionWidth.value} cm x ${_dimensionHeight.value}  cm"
     }
 
     private fun setWidthProduct(valueWidth: String) {
         _dimensionWidth.value = valueWidth.replace(".", "").toInt() ?: 0
+        _dimension.value = "${_dimensionWidth.value} cm x ${_dimensionHeight.value}  cm"
     }
 
     private fun setPotonganProduct(valuePotongan: String) {
