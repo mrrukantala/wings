@@ -15,6 +15,8 @@ interface ProductRepository {
     suspend fun selectAllProductDataByUser(key: String):
             Flow<com.example.bossku.utils.common.base.Result<List<ProductEntity>, List<ProductItem>>>
 
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
     suspend fun selectAllProductData(key: String):
             Flow<com.example.bossku.utils.common.base.Result<List<ProductEntity>, List<ProductItem>>>
 

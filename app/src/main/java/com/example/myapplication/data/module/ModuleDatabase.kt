@@ -1,11 +1,12 @@
 package com.example.myapplication.data.module
 
 import android.content.Context
-import androidx.room.Room
 import com.example.myapplication.data.repositoryimpl.ProductRepositoryImpl
+import com.example.myapplication.data.repositoryimpl.TransactionRespositoryImpl
 import com.example.myapplication.data.repositoryimpl.UserRepositoryImpl
 import com.example.myapplication.data.utils.PenjualanDatabase
 import com.example.myapplication.domain.repo.ProductRepository
+import com.example.myapplication.domain.repo.TransactionRepository
 import com.example.myapplication.domain.repo.UserRepository
 import dagger.Module
 import dagger.Provides
@@ -20,7 +21,8 @@ object ModuleDatabase {
 
     @Singleton // Tell Dagger-Hilt to create a singleton accessible everywhere in ApplicationCompenent (i.e. everywhere in the application)
     @Provides
-    fun providePenjualanDatabase(@ApplicationContext app: Context) =  PenjualanDatabase.getInstance(app)//Room.databaseBuilder(
+    fun providePenjualanDatabase(@ApplicationContext app: Context) =
+        PenjualanDatabase.getInstance(app)//Room.databaseBuilder(
 //        app,
 //        PenjualanDatabase::class.java,
 //        "penjualan_database"
@@ -37,5 +39,11 @@ object ModuleDatabase {
     @Provides
     fun provideProductDao(db: PenjualanDatabase): ProductRepository {
         return ProductRepositoryImpl(db.productDao)
+    }
+
+    @Singleton
+    @Provides
+    fun provideTransactionDao(db: PenjualanDatabase): TransactionRepository {
+        return TransactionRespositoryImpl(db.transactionDao)
     }
 }

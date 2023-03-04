@@ -16,6 +16,7 @@
             app:msv_emptyView="@layout/empty_layout_my_product"
             app:msv_loadingView="@layout/shimmer_my_product"
             app:msv_viewState="content"
+            app:msv_animateViewChanges="true"
             tools:context=".presentation.menu.home.HomeFragment">
 
             <androidx.constraintlayout.widget.ConstraintLayout

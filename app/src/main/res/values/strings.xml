@@ -235,4 +235,10 @@
     <string name="lbl">PCS</string>
     <string name="label_unit">Unit Barang</string>
     <string name="label_stock">Stok selalu tersedia</string>
+    <string name="profile">Profile</string>
+    <string name="order">Order</string>
+    <string name="my_produk">My Produk</string>
+    <string name="home">Home</string>
+    <string name="total_harga">Total Harga</string>
+    <string name="tanggal_pembelian">Tanggal Pembelian</string>
 </resources>

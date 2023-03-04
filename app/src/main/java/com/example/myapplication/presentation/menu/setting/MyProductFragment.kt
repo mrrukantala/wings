@@ -35,7 +35,7 @@ class MyProductFragment : Fragment() {
         MyProductAdapter({
             menuNavController?.navigate(
                 MyProductFragmentDirections.actionMyProductFragmentToDetailProductFragment(
-                    pref.getUser(), it.productCode
+                    it.user, it.productCode
                 )
             )
         })

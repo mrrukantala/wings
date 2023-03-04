@@ -1,11 +1,11 @@
 package com.example.myapplication.presentation.menu.home
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.domain.entity.ProductEntity
 import com.example.myapplication.domain.usecase.ProductUserCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onStart
@@ -38,8 +38,7 @@ class HomeViewModel @Inject constructor(
     }
 
     fun getData(user: String) {
-        Log.v("DATA", "${user} kebaca")
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             useCase.selectAllProductData(user)
                 .onStart { loading() }
                 .catch { }

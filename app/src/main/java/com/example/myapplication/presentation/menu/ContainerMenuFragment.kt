@@ -46,7 +46,7 @@ class ContainerMenuFragment : Fragment() {
         NavigationUI.setupWithNavController(menu, nav.navController)
         nav.navController.addOnDestinationChangedListener { _, main, _ ->
             when (main.id) {
-                R.id.homeFragment, R.id.myProductFragment, R.id.listCheckoutProductFragment -> {
+                R.id.homeFragment, R.id.myProductFragment, R.id.listCheckoutProductFragment, R.id.profileFragment -> {
                     showBottomNav(menu = menu)
                 }
                 else -> {

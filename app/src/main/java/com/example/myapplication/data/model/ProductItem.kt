@@ -32,5 +32,5 @@ data class ProductItem(
     val unit: String
 ) {
     fun toProductEntity() =
-        ProductEntity(productCode, productName, price, currency, discount, dimension, unit)
+        ProductEntity(productCode, productName, user, price, currency, discount, dimension, unit)
 }

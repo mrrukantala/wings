@@ -1,6 +1,5 @@
 package com.example.myapplication.domain.dao.penjualan
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
@@ -12,7 +11,7 @@ interface ProductDao {
     fun insert(productData: ProductItem)
 
     @Query("SELECT * FROM product_data WHERE _user != :key")
-    fun getAllProductData(key: String): LiveData<List<ProductItem>>
+    fun getAllProductData(key: String): List<ProductItem>
 
     @Query("SELECT * FROM product_data WHERE _user =:key")
     fun getListProductByUser(key: String): List<ProductItem>

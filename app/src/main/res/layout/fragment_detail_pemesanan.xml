@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.menu.listcheckout.detail.DetailPemesananFragment">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="center"
+            android:theme="@style/Montserrat.Bold.Black1.20sp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.kennyc.view.MultiStateView
+            android:id="@+id/msvDetailProduct"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:msv_animateViewChanges="true"
+            app:msv_emptyView="@layout/layout_default_empty"
+            app:msv_loadingView="@layout/shimmer_detail_product"
+            app:msv_viewState="content">
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/nestedScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/tvStatus"
+                            style="@style/Montserrat.Blue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_16dp"
+                            android:layout_marginTop="@dimen/_8dp"
+                            android:textSize="@dimen/_14dp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="Selesai" />
+
+                        <View
+                            android:id="@+id/view"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_2dp"
+                            android:layout_marginHorizontal="@dimen/_16dp"
+                            android:layout_marginTop="@dimen/_8dp"
+                            android:background="@color/black6"
+                            app:layout_constraintTop_toBottomOf="@+id/tvStatus"
+                            tools:layout_editor_absoluteX="16dp" />
+
+                        <TextView
+                            android:id="@+id/tvLabelTanggalPembelian"
+                            style="@style/Montserrat.Black2.14sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_16dp"
+                            android:layout_marginTop="@dimen/_8dp"
+                            android:layout_marginBottom="@dimen/_16dp"
+                            android:text="@string/tanggal_pembelian"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tvCodenNumberDocument" />
+
+                        <TextView
+                            android:id="@+id/tvCodenNumberDocument"
+                            style="@style/Montserrat.Black1.14sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_16dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/tvKodeDocument"
+                            tools:text="TRX - 001" />
+
+                        <TextView
+                            android:id="@+id/tvKodeDocument"
+                            style="@style/Montserrat.Black2.14sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_16dp"
+                            android:layout_marginTop="@dimen/_8dp"
+                            android:text="Kode Dokumen - Nomer Dokumen"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/view" />
+
+                        <TextView
+                            android:id="@+id/tvValueTanggalPembelian"
+                            style="@style/Montserrat.Black1.14sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_8dp"
+                            android:layout_marginEnd="@dimen/_16dp"
+                            android:layout_marginBottom="@dimen/_16dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tvCodenNumberDocument"
+                            tools:text="21 Oktober 2022" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/textView32"
+                        style="@style/Montserrat.Bold.Black1.14sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_16dp"
+                        android:layout_marginTop="@dimen/_16dp"
+                        android:text="@string/label_detail_produk"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_16dp"
+                        android:layout_marginVertical="@dimen/_8dp"
+                        android:elevation="@dimen/_8dp"
+                        app:cardCornerRadius="@dimen/_8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView32">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/cardView8"
+                                android:layout_width="@dimen/_64dp"
+                                android:layout_height="@dimen/_64dp"
+                                android:layout_marginStart="@dimen/_16dp"
+                                android:layout_marginTop="@dimen/_16dp"
+                                app:cardCornerRadius="@dimen/_12dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <ImageView
+                                    android:id="@+id/ivProduct"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerCrop"
+                                    android:src="@drawable/img" />
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:id="@+id/tvValueNamaProduk"
+                                style="@style/Montserrat.Bold.Black1.14sp"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_8dp"
+                                android:layout_marginEnd="@dimen/_16dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/cardView8"
+                                app:layout_constraintTop_toTopOf="@+id/cardView8"
+                                tools:text="kldlkajdabfbfdlkasbdfkabfdafldsbfasdf afdbaslkdfbalsd ahsdfadhfla" />
+
+                            <TextView
+                                android:id="@+id/tvHargaSatuan"
+                                style="@style/Montserrat.Black2.12sp"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_8dp"
+                                android:layout_marginTop="@dimen/_4dp"
+                                android:layout_marginEnd="@dimen/_16dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/cardView8"
+                                app:layout_constraintTop_toBottomOf="@+id/tvValueNamaProduk"
+                                tools:text="1 x Rp40.000" />
+
+                            <TextView
+                                android:id="@+id/textView27"
+                                style="@style/Montserrat.Black2.12sp"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_8dp"
+                                android:text="@string/label_total_harga"
+                                app:layout_constraintStart_toStartOf="@+id/cardView8"
+                                app:layout_constraintTop_toBottomOf="@+id/cardView8" />
+
+                            <TextView
+                                android:id="@+id/tvValueTotalHargaPerItem"
+                                style="@style/Montserrat.Bold.Black1.14sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_2dp"
+                                android:layout_marginBottom="@dimen/_16dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="@+id/textView27"
+                                app:layout_constraintTop_toBottomOf="@+id/textView27"
+                                tools:text="Rp4.000.0000" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:id="@+id/tvLabelInfoPengiriman"
+                        style="@style/Montserrat.Bold.Black1.14sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_16dp"
+                        android:layout_marginTop="@dimen/_16dp"
+                        android:text="@string/label_rincian_pembayaran"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+                    <View
+                        android:id="@+id/view3"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_2dp"
+                        android:layout_marginHorizontal="@dimen/_16dp"
+                        android:layout_marginTop="@dimen/_8dp"
+                        android:background="@color/black5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvLabelInfoPengiriman" />
+
+                    <TextView
+                        android:id="@+id/tvLabelTotalHarga"
+                        style="@style/Montserrat.Black2.12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_16dp"
+                        android:layout_marginTop="@dimen/_8dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view3"
+                        tools:text="Total Harga (4 barang)" />
+
+                    <TextView
+                        android:id="@+id/tvLabelDiscount"
+                        style="@style/Montserrat.Black2.12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_16dp"
+                        android:layout_marginTop="@dimen/_6dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvLabelTotalHarga"
+                        tools:text="Discount Item (4 Barang)" />
+
+                    <TextView
+                        android:id="@+id/tvValueDiscount"
+                        style="@style/Montserrat.Black2.12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/tvLabelDiscount"
+                        tools:text="Rp160.000" />
+
+                    <TextView
+                        android:id="@+id/tvValueTotalHarga"
+                        style="@style/Montserrat.Black2.12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8dp"
+                        android:layout_marginEnd="16dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view3"
+                        tools:text="Rp160.000" />
+
+                    <View
+                        android:id="@+id/view4"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_2dp"
+                        android:layout_marginHorizontal="@dimen/_16dp"
+                        android:layout_marginTop="@dimen/_8dp"
+                        android:background="@color/black5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvLabelDiscount" />
+
+                    <TextView
+                        android:id="@+id/tvLabelTotalBelanja"
+                        style="@style/Montserrat.Bold.Black1.14sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_16dp"
+                        android:layout_marginTop="@dimen/_8dp"
+                        android:text="@string/total_belanja"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view4" />
+
+                    <TextView
+                        android:id="@+id/tvValueTotalBelanja"
+                        style="@style/Montserrat.Bold.Black1.14sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8dp"
+                        android:layout_marginEnd="@dimen/_16dp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view4"
+                        tools:text="Rp160.000" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </com.kennyc.view.MultiStateView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

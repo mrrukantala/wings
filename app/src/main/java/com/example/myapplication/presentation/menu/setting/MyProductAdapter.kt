@@ -32,14 +32,14 @@ class MyProductAdapter(val onClickListener: (entity: ProductEntity) -> Unit) :
             with(binding) {
 
                 tvNamaProduct.text = data.productName
-                tvHargaProduct.text = toRupiah(data.price.toString())
+                tvHargaProduct.text = toRupiah((data.price - data.discount).toString())
                 tvStockProduct.text = "Stok selalu tersedia"
                 ivFotoProduct.setImageResource(R.drawable.img)
 
                 if (data.discount == 0) {
 
                 } else {
-                    tvDiscount.text = toRupiah(data.discount.toString())
+                    tvDiscount.text = toRupiah(data.price.toString())
                     tvDiscount.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
                 }
 

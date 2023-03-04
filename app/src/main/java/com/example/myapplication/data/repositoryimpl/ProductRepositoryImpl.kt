@@ -33,7 +33,7 @@ class ProductRepositoryImpl @Inject constructor(private val dao: ProductDao) : P
         return flow {
             delay(800)
             val data = dao.getAllProductData(key)
-            val result = data.value?.map { it.toProductEntity() }
+            val result = data.map { it.toProductEntity() }
             emit(Result.Success(result ?: listOf()))
         }
     }

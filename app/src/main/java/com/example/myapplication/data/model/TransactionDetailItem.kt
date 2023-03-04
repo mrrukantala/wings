@@ -8,10 +8,12 @@ import com.example.myapplication.domain.entity.TransactionDetailEntity
 @Entity(tableName = "transaction_detail_data")
 data class TransactionDetailItem(
     @PrimaryKey(autoGenerate = false)
-    @ColumnInfo(name = "_document_code")
+    @ColumnInfo(name = "_docment_code")
     val documentCode: String,
     @ColumnInfo(name = "_document_number")
     val documentNumber: String,
+    @ColumnInfo(name = "_product_code")
+    val productCode: String,
     @ColumnInfo(name = "_price")
     val price: Int,
     @ColumnInfo(name = "_quantity")

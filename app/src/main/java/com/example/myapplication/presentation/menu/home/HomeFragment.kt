@@ -1,7 +1,6 @@
 package com.example.myapplication.presentation.menu.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,7 +34,11 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private val adapter: ProductHomeAdapter by lazy {
         ProductHomeAdapter({
-            Log.v("DATA", it.toString())
+            menuNavController?.navigate(
+                HomeFragmentDirections.actionHomeFragmentToDetailProductFragment(
+                    it.user, it.productCode
+                )
+            )
         })
     }
 
@@ -45,13 +48,14 @@ class HomeFragment : Fragment() {
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
+        binding.rvProduct.adapter = adapter
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getData(pref.getUser())
         observer()
+        viewModel.getData(pref.getUser())
     }
 
     private fun observer() {
@@ -71,6 +75,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun successHandler(data: List<ProductEntity>) {
+        val adapter = binding.rvProduct.adapter as ProductHomeAdapter
+        adapter.submitList(data)
         if (data.isEmpty()) {
             binding.msvProduct.viewState = MultiStateView.ViewState.EMPTY
         } else {

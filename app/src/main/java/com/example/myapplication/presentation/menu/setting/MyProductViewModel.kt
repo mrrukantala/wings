@@ -38,7 +38,6 @@ class MyProductViewModel @Inject constructor(
     }
 
     fun getData(user: String) {
-        Log.v("DATA", "${user} kebaca")
         viewModelScope.launch(Dispatchers.IO) {
             useCase.selectAllProductDataByUser(user)
                 .onStart {
