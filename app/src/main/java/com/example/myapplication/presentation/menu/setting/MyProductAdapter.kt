@@ -30,6 +30,7 @@ class MyProductAdapter(val onClickListener: (entity: ProductEntity) -> Unit) :
         fun bind(data: ProductEntity) {
             binding.executePendingBindings()
             with(binding) {
+
                 tvNamaProduct.text = data.productName
                 tvHargaProduct.text = toRupiah(data.price.toString())
                 tvStockProduct.text = "Stok selalu tersedia"
@@ -59,6 +60,9 @@ class MyProductAdapter(val onClickListener: (entity: ProductEntity) -> Unit) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
         holder.bind(item)
+        holder.itemView.setOnClickListener {
+            onClickListener.invoke(item)
+        }
     }
 
 }

@@ -14,7 +14,6 @@ import javax.inject.Inject
 class ProductRepositoryImpl @Inject constructor(private val dao: ProductDao) : ProductRepository {
     override suspend fun insertProduct(productData: ProductItem): Flow<Result<ProductEntity, ProductItem>> {
         return flow {
-            Log.v("DATAA", productData.toProductEntity().toString())
             delay(800)
             dao.insert(productData)
             emit(Result.Success(productData.toProductEntity()))

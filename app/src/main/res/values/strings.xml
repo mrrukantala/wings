@@ -234,4 +234,5 @@
     <string name="lbl_lebar">Lebar Produk</string>
     <string name="lbl">PCS</string>
     <string name="label_unit">Unit Barang</string>
+    <string name="label_stock">Stok selalu tersedia</string>
 </resources>
