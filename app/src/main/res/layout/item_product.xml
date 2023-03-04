@@ -28,8 +28,9 @@
 
                 <TextView
                     android:id="@+id/tvNamaProduct"
-                    style="@style/Montserrat.Bold.Black1.14sp"
+                    style="@style/Montserrat.Bold.Black1.16sp"
                     android:layout_width="0dp"
+                    android:layout_marginTop="@dimen/_16dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/_8dp"
                     android:maxLines="1"
@@ -40,13 +41,13 @@
 
                 <TextView
                     android:id="@+id/tvHargaProduct"
-                    style="@style/Montserrat.Bold.Black1.14sp"
+                    style="@style/Montserrat.Bold.Black1.16sp"
                     android:layout_width="@dimen/_0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/_8dp"
                     android:layout_marginTop="@dimen/_4dp"
                     android:maxLines="2"
-                    android:textColor="?attr/colorPrimary"
+                    android:textColor="@color/lightBluePrimary"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/cardView2"
@@ -55,7 +56,7 @@
 
                 <TextView
                     android:id="@+id/tvStockProduct"
-                    style="@style/Montserrat.Black2.12sp"
+                    style="@style/Montserrat.Black2.16sp"
                     android:layout_width="@dimen/_0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/_8dp"
@@ -67,7 +68,7 @@
 
                 <TextView
                     android:id="@+id/tvDiscount"
-                    style="@style/Montserrat.Black2.12sp"
+                    style="@style/Montserrat.Black2.16sp"
                     android:layout_width="@dimen/_0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/_8dp"

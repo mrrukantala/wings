@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.menu.setting.form.AddProductFragment">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="center"
+            android:theme="@style/Montserrat.Bold.Black1.20sp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_0dp"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/containerContent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+                <TextView
+                    android:id="@+id/textView38"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="@font/nunito_sans"
+                    android:text="@string/_2_tambah_keterangan_produk"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/_16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/etTambahProduk"
+                    style="@style/BaseTextInputLayout.First"
+                    android:hint="@string/lbl_text_field_nama"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView38"
+                    app:placeholderText="@string/lbl_text_field_nama">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/BaseTextInputEditText.OneLine"
+                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.' "
+                        android:inputType="textCapWords" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/edtHarga"
+                    style="@style/BaseTextInputLayout.First"
+                    android:hint="@string/label_harga"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etTambahProduk"
+                    app:placeholderText="@string/label_harga">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/BaseTextInputEditText.OneLine"
+                        android:inputType="number"
+                        android:text="0" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/edtDiscount"
+                    style="@style/BaseTextInputLayout.First"
+                    android:hint="@string/potongan"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edtHarga"
+                    app:placeholderText="@string/potongan">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/BaseTextInputEditText.OneLine"
+                        android:inputType="number"
+                        android:text="0" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tvLabelDimension"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="@dimen/_16dp"
+                    android:fontFamily="@font/nunito_sans"
+                    android:text="@string/dimensi_produk"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/_16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edtDiscount" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/edtPanjang"
+                    style="@style/BaseTextInputLayout.First"
+                    android:layout_width="@dimen/_0dp"
+                    android:hint="@string/lbl_panjang"
+                    app:layout_constraintEnd_toStartOf="@+id/edtLebar"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvLabelDimension"
+                    app:placeholderText="@string/lbl_panjang">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/BaseTextInputEditText.OneLine"
+                        android:digits="0123456789"
+                        android:inputType="number"
+                        android:text="0" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/edtLebar"
+                    style="@style/BaseTextInputLayout.First"
+                    android:layout_width="@dimen/_0dp"
+                    android:hint="@string/lbl_lebar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/edtPanjang"
+                    app:layout_constraintTop_toBottomOf="@+id/tvLabelDimension"
+                    app:placeholderText="@string/lbl_lebar">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/BaseTextInputEditText.OneLine"
+                        android:digits="0123456789"
+                        android:inputType="number"
+                        android:text="0" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/etUnit"
+                    style="@style/BaseTextInputLayout.First"
+                    android:hint="@string/label_unit"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edtPanjang">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/BaseTextInputEditText.OneLine"
+                        android:enabled="false"
+                        android:text="@string/lbl" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/btnAddproduct"
+                style="@style/Button.Red"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_16dp"
+                android:layout_marginVertical="@dimen/_16dp"
+                android:text="@string/label_btn_tambah_produk"
+                android:textAllCaps="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <include
+            android:id="@+id/iloding"
+            layout="@layout/loading_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,5 +1,6 @@
 package com.example.myapplication.data.repositoryimpl
 
+import android.util.Log
 import com.example.bossku.utils.common.base.Result
 import com.example.myapplication.data.model.ProductItem
 import com.example.myapplication.domain.dao.penjualan.ProductDao
@@ -13,6 +14,7 @@ import javax.inject.Inject
 class ProductRepositoryImpl @Inject constructor(private val dao: ProductDao) : ProductRepository {
     override suspend fun insertProduct(productData: ProductItem): Flow<Result<ProductEntity, ProductItem>> {
         return flow {
+            Log.v("DATAA", productData.toProductEntity().toString())
             delay(800)
             dao.insert(productData)
             emit(Result.Success(productData.toProductEntity()))
@@ -23,7 +25,7 @@ class ProductRepositoryImpl @Inject constructor(private val dao: ProductDao) : P
         return flow {
             delay(800)
             val data = dao.getListProductByUser(key)
-            val result = data.value?.map { it.toProductEntity() }
+            val result = data.map { it.toProductEntity() }
             emit(Result.Success(result ?: listOf()))
         }
     }

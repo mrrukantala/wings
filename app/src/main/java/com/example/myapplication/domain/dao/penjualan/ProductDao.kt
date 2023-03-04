@@ -14,9 +14,9 @@ interface ProductDao {
     @Query("SELECT * FROM product_data WHERE _user != :key")
     fun getAllProductData(key: String): LiveData<List<ProductItem>>
 
-    @Query("SELECT * FROM product_data where _user = :key")
-    fun getListProductByUser(key: String): LiveData<List<ProductItem>>
+    @Query("SELECT * FROM product_data WHERE _user =:key")
+    fun getListProductByUser(key: String): List<ProductItem>
 
-    @Query("SELECT * FROM product_data WHERE _product_code = :key")
+    @Query("SELECT * FROM product_data WHERE productCode = :key")
     fun getProductByCode(key: String): ProductItem
 }

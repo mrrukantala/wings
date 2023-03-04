@@ -1,5 +1,6 @@
 package com.example.myapplication.domain.repo
 
+import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
 import com.example.myapplication.data.model.ProductItem
 import com.example.myapplication.domain.entity.ProductEntity
@@ -9,6 +10,8 @@ interface ProductRepository {
     suspend fun insertProduct(productData: ProductItem):
             Flow<com.example.bossku.utils.common.base.Result<ProductEntity, ProductItem>>
 
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
     suspend fun selectAllProductDataByUser(key: String):
             Flow<com.example.bossku.utils.common.base.Result<List<ProductEntity>, List<ProductItem>>>
 

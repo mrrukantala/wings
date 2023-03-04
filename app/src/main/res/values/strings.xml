@@ -5,7 +5,7 @@
     <string name="lbl_on_boarding">Daftarkan diri anda dan gabung dengan BossKu sekarang juga!</string>
     <string name="lbl_button_on_boarding_buyyer">Gabung Sebagai Pembeli</string>
     <string name="lbl_button_on_boarding_seller">Gabung Sebagai UMKM</string>
-    <string name="lbl_text_field_nama">Nama Customer</string>
+    <string name="lbl_text_field_nama">Nama Produk</string>
     <string name="lbl_text_field_jasa_pengiriman">Jasa Pengiriman</string>
     <string name="lbl_text_field_no_resi">Nomer Resi Pengiriman</string>
     <string name="lbl_text_field_noresi">Masukan Nomer Resi Pengiriman</string>
@@ -226,4 +226,12 @@
     <string name="nama">Nama</string>
     <string name="data_empty">Belum ada data</string>
     <string name="label_username">Username</string>
+    <string name="kamu_belum_punya_produk_nyuk_daftar">Kamu belum punya produk\nYuk Daftar</string>
+    <string name="_2_tambah_keterangan_produk">Tambah Keterangan Produk</string>
+    <string name="potongan">Potongan</string>
+    <string name="dimensi_produk">Dimensi Produk</string>
+    <string name="lbl_panjang">Panjang Produk</string>
+    <string name="lbl_lebar">Lebar Produk</string>
+    <string name="lbl">PCS</string>
+    <string name="label_unit">Unit Barang</string>
 </resources>

@@ -19,28 +19,22 @@ import com.example.myapplication.domain.dao.penjualan.UserDao
 
 abstract class PenjualanDatabase : RoomDatabase() {
 
-    abstract val userDao: UserDao
-    abstract val productDao: ProductDao
+    abstract val userDao : UserDao
+    abstract val productDao : ProductDao
 
     companion object {
         @Volatile
         private var INSTANCE: PenjualanDatabase? = null
 
         fun getInstance(context: Context): PenjualanDatabase {
-            synchronized(this) {
-                var instance = INSTANCE
-
-                if (instance == null) {
-                    instance = Room.databaseBuilder(
-                        context.applicationContext,
-                        PenjualanDatabase::class.java,
-                        "penjualan_database"
-                    )
-                        .fallbackToDestructiveMigration()
-                        .build()
-                    INSTANCE = instance
-                }
-                return instance
+            return INSTANCE ?: synchronized(this) {
+                var instance = Room.databaseBuilder(
+                    context.applicationContext,
+                    PenjualanDatabase::class.java,
+                    "penjualan_database"
+                ).build()
+                INSTANCE = instance
+                instance
             }
         }
     }

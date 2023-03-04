@@ -8,7 +8,6 @@ import com.example.myapplication.domain.entity.ProductEntity
 @Entity(tableName = "product_data")
 data class ProductItem(
     @PrimaryKey(autoGenerate = false)
-    @ColumnInfo(name = "_product_code")
     val productCode: String,
 
     @ColumnInfo(name = "_product_name")

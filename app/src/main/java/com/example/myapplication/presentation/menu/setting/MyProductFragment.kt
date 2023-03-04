@@ -1,32 +1,91 @@
 package com.example.myapplication.presentation.menu.setting
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.flowWithLifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import com.example.bossku.utils.app.SharedPreferences
 import com.example.myapplication.R
+import com.example.myapplication.databinding.FragmentMyProductBinding
+import com.example.myapplication.domain.entity.ProductEntity
+import com.kennyc.view.MultiStateView
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MyProductFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = MyProductFragment()
+    private val menuNavController: NavController? by lazy {
+        activity?.findNavController(R.id.nav_host_fragment_menu)
     }
 
-    private lateinit var viewModel: MyProductViewModel
+    @Inject
+    lateinit var pref: SharedPreferences
+    private val viewModel: MyProductViewModel by viewModels()
+    private lateinit var binding: FragmentMyProductBinding
+    private val adapter: MyProductAdapter by lazy {
+        MyProductAdapter({
+            menuNavController?.navigate(
+                MyProductFragmentDirections.actionMyProductFragmentToDetailProductFragment(
+                    pref.getUser()
+                )
+            )
+        })
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_my_product, container, false)
+        binding = FragmentMyProductBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner = viewLifecycleOwner
+        binding.rvProduct.adapter = adapter
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MyProductViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        observer()
+        viewModel.getData(pref.getUser())
+        binding.btnAddproduct.setOnClickListener {
+            menuNavController?.navigate(MyProductFragmentDirections.actionMyProductFragmentToAddProductFragment())
+        }
+
+    }
+
+    private fun observer() {
+        viewModel.state.flowWithLifecycle(lifecycle)
+            .onEach { state -> handler(state) }
+            .launchIn(lifecycleScope)
+    }
+
+    private fun handler(productState: MyProductState) {
+        when (productState) {
+            is MyProductState.Loading -> binding.msvProduct.viewState =
+                MultiStateView.ViewState.LOADING
+            is MyProductState.Error -> Unit
+            is MyProductState.Success -> successHandler(productState.data)
+            else -> {}
+        }
+    }
+
+    private fun successHandler(data: List<ProductEntity>) {
+        val adapter = binding.rvProduct.adapter as MyProductAdapter
+        adapter.submitList(data)
+
+        if (data.isEmpty()) {
+            binding.msvProduct.viewState = MultiStateView.ViewState.EMPTY
+        } else {
+            binding.msvProduct.viewState = MultiStateView.ViewState.CONTENT
+        }
     }
 
 }

@@ -22,7 +22,11 @@
         android:id="@+id/detailProductFragment"
         android:name="com.example.myapplication.presentation.menu.home.detail.DetailProductFragment"
         android:label="fragment_detail_product"
-        tools:layout="@layout/fragment_detail_product" />
+        tools:layout="@layout/fragment_detail_product" >
+        <argument
+            android:name="username"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/listCheckoutProductFragment"
         android:name="com.example.myapplication.presentation.menu.listcheckout.ListCheckoutProductFragment"
@@ -32,5 +36,21 @@
         android:id="@+id/myProductFragment"
         android:name="com.example.myapplication.presentation.menu.setting.MyProductFragment"
         android:label="fragment_my_product"
-        tools:layout="@layout/fragment_my_product" />
+        tools:layout="@layout/fragment_my_product">
+        <action
+            android:id="@+id/action_myProductFragment_to_addProductFragment"
+            app:destination="@id/addProductFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@anim/anim_slide_out_left" />
+        <action
+            android:id="@+id/action_myProductFragment_to_detailProductFragment"
+            app:destination="@id/detailProductFragment" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_add_product"
+        android:id="@+id/addProductFragment"
+        android:name="com.example.myapplication.presentation.menu.setting.form.AddProductFragment"
+        android:label="AddProductFragment" />
 </navigation>

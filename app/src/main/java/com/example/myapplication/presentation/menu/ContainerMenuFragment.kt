@@ -39,13 +39,14 @@ class ContainerMenuFragment : Fragment() {
         val nav = childFragmentManager.findFragmentById(
             R.id.nav_host_fragment_menu
         ) as NavHostFragment
+        inflate(nav, binding.bnMenuUmkm)
     }
 
     private fun inflate(nav: NavHostFragment, menu: BottomNavigationView) {
         NavigationUI.setupWithNavController(menu, nav.navController)
         nav.navController.addOnDestinationChangedListener { _, main, _ ->
             when (main.id) {
-                R.id.homeFragment, R.id.listCheckoutProductFragment, R.id.myProductFragment -> {
+                R.id.homeFragment, R.id.myProductFragment, R.id.listCheckoutProductFragment -> {
                     showBottomNav(menu = menu)
                 }
                 else -> {

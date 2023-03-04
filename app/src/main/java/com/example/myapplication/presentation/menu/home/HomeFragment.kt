@@ -9,7 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import com.example.bossku.utils.app.SharedPreferences
+import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentHomeBinding
 import com.example.myapplication.domain.entity.ProductEntity
 import com.kennyc.view.MultiStateView
@@ -20,6 +23,10 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
+
+    private val menuNavController: NavController? by lazy {
+        activity?.findNavController(R.id.nav_host_fragment_menu)
+    }
 
     @Inject
     lateinit var pref: SharedPreferences
