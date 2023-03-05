@@ -32,6 +32,9 @@ class PemesananViewModel @Inject constructor(
     private var _totalPrice = MutableLiveData<Int>(0)
     val totalPrice get() = _totalPrice
 
+    private var _subTotal = MutableLiveData<Int>(0)
+    val subTotal get() = _subTotal
+
     private var _product = MutableLiveData<ProductEntity?>(null)
     val produk get() = _product
 
@@ -87,7 +90,7 @@ class PemesananViewModel @Inject constructor(
                                 produk.price,
                                 _productQuantity.value?.toInt()!!,
                                 produk.unit,
-                                _totalPrice.value?.toInt()!!,
+                                _subTotal.value?.toInt()!!,
                                 "IDR"
                             )
                             insertDetail(detailData)
@@ -124,9 +127,13 @@ class PemesananViewModel @Inject constructor(
     }
 
 
-    fun setTotal(qty: Int, price: Int, discount: Int) {
+    private fun subTotal(qty: Int, price: Int) {
+        _subTotal.value = qty * price
+    }
 
+    fun setTotal(qty: Int, price: Int, discount: Int) {
         val hasil = (price * qty) - discount
+        subTotal(qty, price)
         _totalPrice.value = hasil
     }
 
