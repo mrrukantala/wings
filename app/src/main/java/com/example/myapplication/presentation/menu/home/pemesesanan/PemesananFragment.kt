@@ -46,7 +46,11 @@ class PemesananFragment(private val data: ProductEntity) : BottomSheetDialogFrag
         }
 
         override fun afterTextChanged(s: Editable?) {
-            viewModel.setTotal(binding.include14.etDependent.text.toString().toInt(), data.price)
+            viewModel.setTotal(
+                binding.include14.etDependent.text.toString().toInt(),
+                data.price,
+                (data.discount * binding.include14.etDependent.text.toString().toInt())
+            )
             binding.tvValueTotalHarga.text =
                 toRupiah(viewModel.totalPrice.value.toString())
         }
@@ -58,7 +62,11 @@ class PemesananFragment(private val data: ProductEntity) : BottomSheetDialogFrag
     ): View? {
         binding = FragmentPemesananBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
-        viewModel.setTotal(binding.include14.etDependent.text.toString().toInt(), data.price)
+        viewModel.setTotal(
+            binding.include14.etDependent.text.toString().toInt(),
+            data.price,
+            (data.discount * binding.include14.etDependent.text.toString().toInt())
+        )
         return binding.root
     }
 
@@ -67,7 +75,11 @@ class PemesananFragment(private val data: ProductEntity) : BottomSheetDialogFrag
         with(binding) {
             include14.etDependent.text = "1".toEditable()
             tvValueHarga.text = toRupiah(data.price.toString())
-            viewModel.setTotal(include14.etDependent.text.toString().toInt(), data.price)
+            viewModel.setTotal(
+                binding.include14.etDependent.text.toString().toInt(),
+                data.price,
+                (data.discount * binding.include14.etDependent.text.toString().toInt())
+            )
             btnPesan.setOnClickListener {
                 viewModel.order(pref.getUser(), data)
             }
@@ -82,6 +94,7 @@ class PemesananFragment(private val data: ProductEntity) : BottomSheetDialogFrag
         viewModel.totalPrice.observe(viewLifecycleOwner) {
             binding.tvValueTotalHarga.text = toRupiah(viewModel.totalPrice.value.toString())
         }
+        viewModel.setQuanityProduct(binding.include14.etDependent.text.toString().toInt())
 
         viewModel.stateAddDetailData.flowWithLifecycle(lifecycle)
             .onEach { state -> handleState(state) }

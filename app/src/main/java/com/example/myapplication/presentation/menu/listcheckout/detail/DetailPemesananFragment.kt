@@ -1,6 +1,7 @@
 package com.example.myapplication.presentation.menu.listcheckout.detail
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,8 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.bossku.utils.app.SharedPreferences
+import com.example.bossku.utils.convertUTC2TimeTo2
+import com.example.bossku.utils.enums.ConverterDate
 import com.example.bossku.utils.toRupiah
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentDetailPemesananBinding
@@ -20,6 +23,9 @@ import com.kennyc.view.MultiStateView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import java.text.ParseException
+import java.text.SimpleDateFormat
+import java.util.*
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -95,5 +101,4 @@ class DetailPemesananFragment : Fragment() {
             tvValueTotalBelanja.text = toRupiah(args.data.total)
         }
     }
-
 }

@@ -45,6 +45,7 @@ class LoginViewModel @Inject constructor(private val useCase: UserUseCase) : Vie
 
     private fun errorHandler(toUserEntity: UserD) {
         _state.value = LoginState.Error(toUserEntity)
+        _state.value = LoginState.Init
     }
 
     private fun successHandler(data: UserD) {

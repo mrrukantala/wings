@@ -17,6 +17,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
@@ -55,12 +57,16 @@ class PemesananViewModel @Inject constructor(
     }
 
     fun order(user: String, produk: ProductEntity) {
+        val dateTransaction = SimpleDateFormat("dd/MM/yyyy")
+        val current = dateTransaction.format(Date())
+
+
         val data = TransactionHeaderItem(
             System.currentTimeMillis().toString(),
             System.currentTimeMillis().toString(),
             user,
-            totalPrice.value!!.toInt(),
-            System.currentTimeMillis().toString()
+            _totalPrice.value!!.toInt(),
+            current
         )
 
         viewModelScope.launch(Dispatchers.IO) {
@@ -118,8 +124,10 @@ class PemesananViewModel @Inject constructor(
     }
 
 
-    fun setTotal(qty: Int, price: Int) {
-        _totalPrice.value = (price * qty)
+    fun setTotal(qty: Int, price: Int, discount: Int) {
+
+        val hasil = (price * qty) - discount
+        _totalPrice.value = hasil
     }
 
     fun setQuanityProduct(qty: Int) {

@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.model.UserItem
 import com.example.myapplication.domain.entity.UserD
 import com.example.myapplication.domain.usecase.UserUseCase
+import com.example.myapplication.presentation.auth.login.LoginState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -71,6 +72,7 @@ class RegisterViewModel @Inject constructor(
 
     private fun errorHandler(toUserEntity: UserD) {
         _state.value = RegisterState.Error(toUserEntity)
+        _state.value = RegisterState.Init
     }
 
     private fun successHandler(data: UserD) {
