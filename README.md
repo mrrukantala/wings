@@ -9,4 +9,6 @@ Beserta beberapa library jetpack yang terkemuka seperti navigation, ViewModel, F
 
 Aplikasi ini juga disertai dengan login, bottom sheet dialog, bottom navigation, multistate animation, navigation animation, dsb.
 
+Link Video Cara Kerja Aplikasi(Bukan Kode) : https://drive.google.com/file/d/1cvchV_gTas_D2vg4lPnaLjhmBHt6jP6a/view?usp=sharing
+
 ![image](https://user-images.githubusercontent.com/20677616/222976133-d0f2c9b0-3892-4408-b784-35ffb462bff2.png)
