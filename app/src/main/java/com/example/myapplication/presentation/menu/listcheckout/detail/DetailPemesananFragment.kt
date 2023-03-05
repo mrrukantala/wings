@@ -10,9 +10,12 @@ import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.bossku.utils.app.SharedPreferences
+import com.example.bossku.utils.toRupiah
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentDetailPemesananBinding
+import com.example.myapplication.domain.entity.DetailTransactionEntity
 import com.kennyc.view.MultiStateView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
@@ -24,6 +27,7 @@ class DetailPemesananFragment : Fragment() {
 
     @Inject
     lateinit var pref: SharedPreferences
+    private val args: DetailPemesananFragmentArgs by navArgs()
     private lateinit var binding: FragmentDetailPemesananBinding
     private val viewModel: DetailPemesananViewModel by viewModels()
 
@@ -49,7 +53,7 @@ class DetailPemesananFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getProductDetail("", "")
+        viewModel.getProductDetail(args.docCode, args.data.docuNumber)
         observe()
     }
 
@@ -68,9 +72,27 @@ class DetailPemesananFragment : Fragment() {
                 is StateDetailTransaction.Success -> {
                     val data = state.detailTransaction
                     msvDetailProduct.viewState = MultiStateView.ViewState.CONTENT
+                    bindData(data)
                 }
                 else -> {}
             }
+        }
+    }
+
+    private fun bindData(data: DetailTransactionEntity) {
+        with(binding) {
+            tvCodenNumberDocument.text = "${data.documentCode} - ${data.docuNumber}"
+            tvValueTanggalPembelian.text = args.data.date
+            tvValueNamaProduk.text = args.data.namaProduct
+            tvHargaSatuan.text = "${args.data.quantity} x ${toRupiah(args.data.price)}"
+            val hargaAsli = data.subTotal
+            tvValueTotalHargaPerItem.text = toRupiah(hargaAsli)
+            tvLabelTotalHarga.text = "Total Harga (${args.data.quantity} barang)"
+            tvValueTotalHarga.text = toRupiah(data.subTotal)
+            tvLabelDiscount.text = "Discount Harga (${args.data.quantity} barang)"
+            val totalDiskon = (data.discount.toInt() * args.data.quantity.toInt())
+            tvValueDiscount.text = toRupiah(totalDiskon.toString())
+            tvValueTotalBelanja.text = toRupiah(args.data.total)
         }
     }
 

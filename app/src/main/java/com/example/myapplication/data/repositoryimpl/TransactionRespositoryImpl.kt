@@ -1,5 +1,6 @@
 package com.example.myapplication.data.repositoryimpl
 
+import android.util.Log
 import com.example.bossku.utils.common.base.Result
 import com.example.myapplication.data.model.TransactionDetailItem
 import com.example.myapplication.data.model.TransactionHeaderItem
@@ -37,6 +38,7 @@ class TransactionRespositoryImpl @Inject constructor(
         return flow {
             delay(800)
             val data = dao.getListTransaction(key)
+            Log.v("DATA", "${data}")
             emit(Result.Success(data))
         }
     }

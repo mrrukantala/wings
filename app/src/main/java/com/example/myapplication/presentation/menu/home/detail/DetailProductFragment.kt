@@ -16,6 +16,7 @@ import com.example.bossku.utils.app.SharedPreferences
 import com.example.bossku.utils.toRupiah
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentDetailProductBinding
+import com.example.myapplication.presentation.menu.home.pemesesanan.PemesananFragment
 import com.kennyc.view.MultiStateView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
@@ -86,6 +87,11 @@ class DetailProductFragment : Fragment() {
 
                     desc.text = "Dimensi barang ${data.dimension}"
                     tvUnit.text = data.unit
+
+                    btnAddproduct.setOnClickListener {
+                        val bottomSheet = PemesananFragment(data)
+                        bottomSheet.showNow(requireParentFragment().childFragmentManager, "pemesanan")
+                    }
 
 
                 }

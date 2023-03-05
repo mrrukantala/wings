@@ -4,6 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.bossku.utils.toRupiah
+import com.example.myapplication.R
 import com.example.myapplication.databinding.LayoutListTransactionItemBinding
 import com.example.myapplication.domain.entity.ListTransactionEntity
 
@@ -32,7 +34,11 @@ class ListCheckoutAdapter(val onClickListener: (entity: ListTransactionEntity) -
         fun bind(data: ListTransactionEntity) {
             binding.executePendingBindings()
             with(binding) {
-
+                ivProduk.setImageResource(R.drawable.img)
+                tvNamaItem.text = data.namaProduct
+                tvDocCode.text = "${data.documentCode} - ${data.docuNumber}"
+                tvHargaDanQuanity.text = "${toRupiah(data.price)} (${data.quantity} barang)"
+                tvTotal.text = toRupiah( data.total)
             }
         }
     }

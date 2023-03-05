@@ -67,7 +67,6 @@ class AddProductViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             productUserCase.insertProduct(postProductRequest)
                 .onStart {
-                    Log.v("DATA", "LOADING")
                     loadingAddData()
                 }
                 .catch {
@@ -75,11 +74,9 @@ class AddProductViewModel @Inject constructor(
                 .collect { result ->
                     when (result) {
                         is com.example.bossku.utils.common.base.Result.Success -> {
-                            Log.v("DATA", "SUKSES")
                             successAddData(result.data)
                         }
                         is com.example.bossku.utils.common.base.Result.Error -> {
-                            Log.v("DATA", "ERROR")
                         }
                     }
                 }

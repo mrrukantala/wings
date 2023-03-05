@@ -29,12 +29,27 @@
         <argument
             android:name="idproduk"
             app:argType="string" />
+        <action
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@anim/anim_slide_out_left"
+            android:id="@+id/action_detailProductFragment_to_detailPemesananFragment"
+            app:destination="@id/detailPemesananFragment" />
     </fragment>
     <fragment
         android:id="@+id/listCheckoutProductFragment"
         android:name="com.example.myapplication.presentation.menu.listcheckout.ListCheckoutProductFragment"
         android:label="fragment_list_checkout_product"
-        tools:layout="@layout/fragment_list_checkout_product" />
+        tools:layout="@layout/fragment_list_checkout_product">
+        <action
+            android:id="@+id/action_listCheckoutProductFragment_to_detailPemesananFragment"
+            app:destination="@id/detailPemesananFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@anim/anim_slide_out_left" />
+    </fragment>
     <fragment
         android:id="@+id/myProductFragment"
         android:name="com.example.myapplication.presentation.menu.setting.MyProductFragment"
@@ -61,8 +76,20 @@
         android:label="AddProductFragment"
         tools:layout="@layout/fragment_add_product" />
     <fragment
-        tools:layout="@layout/fragment_profile"
         android:id="@+id/profileFragment"
         android:name="com.example.myapplication.presentation.menu.profile.ProfileFragment"
-        android:label="ProfileFragment" />
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/detailPemesananFragment"
+        android:name="com.example.myapplication.presentation.menu.listcheckout.detail.DetailPemesananFragment"
+        android:label="DetailPemesananFragment"
+        tools:layout="@layout/fragment_detail_pemesanan" >
+        <argument
+            android:name="docCode"
+            app:argType="string" />
+        <argument
+            android:name="data"
+            app:argType="com.example.myapplication.domain.entity.ListTransactionEntity" />
+    </fragment>
 </navigation>

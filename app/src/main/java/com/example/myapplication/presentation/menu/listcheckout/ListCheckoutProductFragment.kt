@@ -34,7 +34,11 @@ class ListCheckoutProductFragment : Fragment() {
     private lateinit var binding: FragmentListCheckoutProductBinding
     private val adapter: ListCheckoutAdapter by lazy {
         ListCheckoutAdapter({
-
+            menuNavController?.navigate(
+                ListCheckoutProductFragmentDirections.actionListCheckoutProductFragmentToDetailPemesananFragment(
+                    it.documentCode, it
+                )
+            )
         })
     }
 
@@ -47,6 +51,12 @@ class ListCheckoutProductFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         binding.rvListTransaction.adapter = adapter
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        observer()
+        viewModel.getData(pref.getUser())
     }
 
     private fun observer() {

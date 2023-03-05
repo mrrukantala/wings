@@ -1,5 +1,6 @@
 package com.example.myapplication.presentation.menu.listcheckout.detail
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.bossku.utils.common.base.Result
@@ -47,6 +48,7 @@ class DetailPemesananViewModel @Inject constructor(
                 .collect { result ->
                     when (result) {
                         is Result.Success -> {
+                            Log.v("DATA", "${result.data}")
                             success(result.data)
                         }
                         is Result.Error -> error(result.response)
